@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Svendesigns — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/components.css">
+<style>
+  .spec-row {
+    display: grid;
+    grid-template-columns: 64px 1fr 1fr;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+    border-top: var(--border-hairline);
+  }
+  .spec-row:last-child { border-bottom: var(--border-hairline); }
+  .swatch {
+    width: 48px; height: 48px;
+    border-radius: var(--radius-sm);
+    border: var(--border-hairline);
+  }
+  .token-name { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--color-ink); }
+  .token-value { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--color-slate); }
+  .type-sample { padding: var(--space-4) 0; border-top: var(--border-hairline); display:flex; align-items:baseline; gap: var(--space-6); }
+  .type-sample:last-child { border-bottom: var(--border-hairline); }
+  .type-meta { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-slate); width: 140px; flex-shrink:0; }
+  .space-row { display:flex; align-items:center; gap: var(--space-4); padding: var(--space-3) 0; border-top: var(--border-hairline); }
+  .space-row:last-child { border-bottom: var(--border-hairline); }
+  .space-bar { background: var(--color-signal); height: 12px; }
+  .space-name { font-family: var(--font-mono); font-size: var(--text-sm); width: 90px; flex-shrink:0; }
+  .component-row { display:flex; flex-wrap:wrap; gap: var(--space-4); align-items:center; padding: var(--space-6) 0; border-top: var(--border-hairline); }
+  .component-row:last-child { border-bottom: var(--border-hairline); }
+  .eyebrow { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-slate); margin-bottom: var(--space-2); }
+  header.top { padding: var(--space-8) 0 var(--space-4); }
+  nav.toc { display:flex; gap: var(--space-6); margin-top: var(--space-6); flex-wrap:wrap; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="container">
+    <div class="eyebrow">svendesigns / design system</div>
+    <h1 style="font-size: var(--text-2xl);">Tokens &amp; components</h1>
+    <p style="color: var(--color-slate); max-width: var(--line-max); margin-top: var(--space-3);">
+      Every value on this site — color, type, space, radius — is pulled from
+      <code>tokens.css</code>. Every element below is built in <code>components.css</code>.
+      Change a token once, and it updates everywhere.
+    </p>
+    <nav class="toc">
+      <a class="nav-link" href="#colors">Colors</a>
+      <a class="nav-link" href="#type">Type</a>
+      <a class="nav-link" href="#space">Spacing</a>
+      <a class="nav-link" href="#components">Components</a>
+    </nav>
+  </div>
+</header>
+
+<section class="section" id="colors">
+  <div class="container">
+    <h2 style="font-size: var(--text-lg); margin-bottom: var(--space-6);">Color</h2>
+
+    <div class="spec-row"><div class="swatch" style="background:var(--color-paper)"></div><div class="token-name">--color-paper</div><div class="token-value">#F5F6F3 — page background</div></div>
+    <div class="spec-row"><div class="swatch" style="background:var(--color-surface)"></div><div class="token-name">--color-surface</div><div class="token-value">#FFFFFF — card / raised surface</div></div>
+    <div class="spec-row"><div class="swatch" style="background:var(--color-ink)"></div><div class="token-name">--color-ink</div><div class="token-value">#14181F — headlines, primary text</div></div>
+    <div class="spec-row"><div class="swatch" style="background:var(--color-slate)"></div><div class="token-name">--color-slate</div><div class="token-value">#4B5563 — secondary text</div></div>
+    <div class="spec-row"><div class="swatch" style="background:var(--color-line)"></div><div class="token-name">--color-line</div><div class="token-value">#D8DBD6 — hairline borders</div></div>
+    <div class="spec-row"><div class="swatch" style="background:var(--color-signal)"></div><div class="token-name">--color-signal</div><div class="token-value">#C7551A — CTAs, active states, focus</div></div>
+    <div class="spec-row"><div class="swatch" style="background:var(--color-signal-tint)"></div><div class="token-name">--color-signal-tint</div><div class="token-value">#F1E2D6 — accent background</div></div>
+  </div>
+</section>
+
+<section class="section" id="type">
+  <div class="container">
+    <h2 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Type</h2>
+    <p style="color:var(--color-slate); margin-bottom: var(--space-4);">
+      Montserrat for headlines, Roboto for body copy, IBM Plex Mono for labels and data.
+    </p>
+
+    <div class="type-sample"><div class="type-meta">--text-3xl / display</div><div style="font-family:var(--font-display); font-weight:600; font-size:var(--text-3xl);">Build fast.</div></div>
+    <div class="type-sample"><div class="type-meta">--text-2xl / display</div><div style="font-family:var(--font-display); font-weight:600; font-size:var(--text-2xl);">Ship in days.</div></div>
+    <div class="type-sample"><div class="type-meta">--text-xl / display</div><div style="font-family:var(--font-display); font-weight:600; font-size:var(--text-xl);">Section heading</div></div>
+    <div class="type-sample"><div class="type-meta">--text-lg / body</div><div style="font-family:var(--font-body); font-size:var(--text-lg);">Lead paragraph text</div></div>
+    <div class="type-sample"><div class="type-meta">--text-base / body</div><div style="font-family:var(--font-body); font-size:var(--text-base);">Standard body copy for paragraphs.</div></div>
+    <div class="type-sample"><div class="type-meta">--text-sm / mono</div><div style="font-family:var(--font-mono); font-size:var(--text-sm);">token-label / meta text</div></div>
+  </div>
+</section>
+
+<section class="section" id="space">
+  <div class="container">
+    <h2 style="font-size: var(--text-lg); margin-bottom: var(--space-6);">Spacing</h2>
+    <div class="space-row"><div class="space-name">--space-1</div><div class="space-bar" style="width:4px"></div></div>
+    <div class="space-row"><div class="space-name">--space-2</div><div class="space-bar" style="width:8px"></div></div>
+    <div class="space-row"><div class="space-name">--space-3</div><div class="space-bar" style="width:12px"></div></div>
+    <div class="space-row"><div class="space-name">--space-4</div><div class="space-bar" style="width:16px"></div></div>
+    <div class="space-row"><div class="space-name">--space-6</div><div class="space-bar" style="width:24px"></div></div>
+    <div class="space-row"><div class="space-name">--space-8</div><div class="space-bar" style="width:32px"></div></div>
+    <div class="space-row"><div class="space-name">--space-12</div><div class="space-bar" style="width:48px"></div></div>
+    <div class="space-row"><div class="space-name">--space-16</div><div class="space-bar" style="width:64px"></div></div>
+    <div class="space-row"><div class="space-name">--space-24</div><div class="space-bar" style="width:96px"></div></div>
+  </div>
+</section>
+
+<section class="section" id="components">
+  <div class="container">
+    <h2 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Components</h2>
+    <p style="color:var(--color-slate); margin-bottom: var(--space-4);">Class names are stable — reuse these exactly on every page.</p>
+
+    <div class="component-row">
+      <button class="btn btn-primary">.btn-primary</button>
+      <button class="btn btn-secondary">.btn-secondary</button>
+      <button class="btn btn-ghost">.btn-ghost →</button>
+    </div>
+
+    <div class="component-row">
+      <span class="badge">.badge</span>
+      <span class="badge">available for projects</span>
+    </div>
+
+    <div class="component-row" style="align-items:flex-start;">
+      <div class="card" style="max-width:320px;">
+        <div class="badge" style="margin-bottom:var(--space-3);">.card</div>
+        <h3 style="font-size:var(--text-lg); margin-bottom:var(--space-2);">Card title</h3>
+        <p style="color:var(--color-slate); font-size:var(--text-sm);">Card body copy sits here, wrapped in the hairline border defined by --border-hairline.</p>
+      </div>
+    </div>
+
+    <div class="component-row" style="align-items:flex-end;">
+      <div style="max-width:320px; width:100%;">
+        <label class="field-label" for="demo-input">.input</label>
+        <input class="input" id="demo-input" type="text" placeholder="you@company.com">
+      </div>
+    </div>
+
+    <div class="component-row">
+      <a class="nav-link active" href="#">.nav-link.active</a>
+      <a class="nav-link" href="#">.nav-link</a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
